@@ -1,0 +1,27 @@
+<p-toast [showTransformOptions]="'translateX(100%)'" [hideTransformOptions]="'translateX(100%)'"></p-toast>
+<div class="grid container justify-content-center align-items-center">
+  <div class="col-12">
+    <h1>CADASTRAR COLABORADOR</h1>
+  </div>
+  <div class="col-6" style="background-color: aliceblue; min-height: 70vh;">
+    <div class="grid justify-content-center align-items-center" style="height: 100%;">
+      <div class="col-12">
+        <span class="p-float-label mt-4">
+          <input id="float-input" type="text" pInputText [(ngModel)]="nome">
+          <label for="float-input">Nome do Colaborador</label>
+      </span>
+      </div>
+      <div class="col-12">
+        <p-fileUpload #fubauto mode="basic" name="demo[]" accept="image/png, .jpeg, .jpg" [maxFileSize]="1000000" [customUpload]="true" (uploadHandler)="myUploader($event);fubauto.clear();" [auto]="true" chooseLabel="Enviar Imagem"></p-fileUpload>
+      </div>
+      <div *ngIf="url" class="col-12  mt-4">
+        <div class="grid colaborador mx-1 py-2 flex-column align-items-center">
+          <div class="img-colaborador my-2" style="background-image: url('{{url}}');"></div>
+          <span class="mb-2">{{nome}}</span>
+        </div>
+      </div>
+      <div *ngIf="nome && url" class="col-5 mt-4">
+        <button pButton  type="button" (click)="cadastrar()" icon="pi pi-save" label="Cadastrar" style="width: 100%;" class="p-button-raised p-button-success"></button>
+    </div>
+  </div>
+</div>

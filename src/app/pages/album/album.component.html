@@ -1,0 +1,14 @@
+<div class="grid container justify-content-center align-items-center">
+  <div class="col-12">
+    <h1>COLABORADORES</h1>
+  </div>
+  <ng-container *ngFor="let i of colaboradores">
+    <div class="md:col-2 sm:col-4 mt-4 col-container">
+      <div class="grid colaborador mx-1 py-2 flex-column align-items-center">
+        <div class="img-colaborador my-2" style="background-image: url('{{i.url}}');"></div>
+        <span class="mb-2">{{i.nome}}</span>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
